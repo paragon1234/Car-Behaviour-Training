@@ -1,4 +1,6 @@
-**Behavioral Cloning Project**
+# Behavioral Cloning Project
+
+## Goal
 
 The goals / steps of this project are the following:
 * Use the simulator to collect data of good driving behavior
@@ -19,9 +21,9 @@ The goals / steps of this project are the following:
 [image7]: ./examples/placeholder_small.png "Flipped Image"
 
 
-###Files Submitted & Code Quality
+## Files Submitted & Code Quality
 
-####1. Submission includes all required files and can be used to run the simulator in autonomous mode
+### 1. Submission includes all required files and can be used to run the simulator in autonomous mode
 
 My project includes the following files:
 * model.py containing the script to create and train the model
@@ -29,19 +31,19 @@ My project includes the following files:
 * model.h5 containing a trained convolution neural network 
 * writeup_report.md or writeup_report.pdf summarizing the results
 
-####2. Submission includes functional code
+### 2. Submission includes functional code
 Using the Udacity provided simulator and my drive.py file, the car can be driven autonomously around the track by executing 
 ```sh
 python drive.py model.h5
 ```
 
-####3. Submission code is usable and readable
+### 3. Submission code is usable and readable
 
 The model.py file contains the code for training and saving the convolution neural network. The file shows the pipeline I used for training and validating the model, and it contains comments to explain how the code works.
 
-###Model Architecture and Training Strategy
+## Model Architecture and Training Overview
 
-####1. An appropriate model architecture has been employed
+### 1. An appropriate model architecture has been employed
 
 My model consists of a convolution neural network with 3x3/5x5 filter sizes and depths between 32 and 64 (model.py lines 54-58) 
 
@@ -49,23 +51,23 @@ The model includes RELU layers to introduce nonlinearity (code line 54-56), and 
 
 To increase accuracy of the model, the top 71 pixels and bottom 25 pixels are removed from the image using Keras Cropping2D layer (code line 53)
 
-####2. Attempts to reduce overfitting in the model
+### 2. Attempts to reduce overfitting in the model
 
 The model contains dropout layers in order to reduce overfitting (model.py lines 21). 
 
 The model was trained and validated on different data sets to ensure that the model was not overfitting (code line 67). The model was tested by running it through the simulator and ensuring that the vehicle could stay on the track.
 
-####3. Model parameter tuning
+### 3. Model parameter tuning
 
 The model used an adam optimizer, so the learning rate was not tuned manually (model.py line 66).
 
-####4. Appropriate training data
+### 4. Appropriate training data
 
 Training data was chosen to keep the vehicle driving on the road. For details about how I created the training data, see the next section. 
 
-###Model Architecture and Training Strategy
+## Model Architecture and Training Strategy
 
-####1. Solution Design Approach
+### 1. Solution Design Approach
 
 The overall strategy for deriving a model architecture was to use different layers so that vehicle stays on road without touching the side lines as if it is safe for the person sitting inside the car while doing actual driving.
 
@@ -79,7 +81,7 @@ Then taking clue from Nvidia architecture I created a trimmed down architecture:
 
 My final archtitecture was the Nvidia Architecture where the car movement from one side of road to another reduced. At the end of the process, the vehicle is able to drive autonomously around the track (at 25 speed) without leaving the road.
 
-####2. Final Model Architecture
+### 2. Final Model Architecture
 
 The final model architecture (model.py lines 54-63) consisted of a convolution neural network with the following layers and layer sizes 
 
@@ -107,7 +109,7 @@ The final model architecture (model.py lines 54-63) consisted of a convolution n
 
 ![alt text][image1]
 
-####3. Creation of the Training Set & Training Process
+### 3. Creation of the Training Set & Training Process
 
 To capture good driving behavior, I first recorded two laps on track one using center lane driving. Here is an example image of center lane driving:
 
