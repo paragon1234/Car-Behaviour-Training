@@ -47,7 +47,7 @@ My model consists of a convolution neural network with 3x3/5x5 filter sizes and 
 
 The model includes RELU layers to introduce nonlinearity (code line 54-56), and the data is normalized in the model using a Keras lambda layer (code line 52). 
 
-To increase accuracy of the model, the top 71 pixels and bottom 25 pixels are removed from the image using Keras Cropping2D layer (code line 53). This ensures that the image contains only the road and not mountains at the top and the car at the bottom.
+To increase accuracy of the model, the top 71 pixels and bottom 25 pixels are removed from the image using Keras Cropping2D layer (code line 53). This ensures that the image contains only the track and not mountains at the top and the car at the bottom.
 
 ### 2. Attempts to reduce overfitting in the model
 
@@ -59,23 +59,23 @@ The model used an adam optimizer, so the learning rate was not tuned manually (m
 
 ### 4. Appropriate training data
 
-Training data was chosen to keep the vehicle driving on the road. For details about how I created the training data, see the next section. 
+Training data was chosen to keep the vehicle driving on the track. For details about how I created the training data, see the next section. 
 
 ## Model Architecture and Training Strategy
 
 ### 1. Solution Design Approach
 
-The overall strategy for deriving a model architecture was to use different layers so that vehicle stays on road without touching the side lines as if it is safe for the person sitting inside the car while doing actual driving.
+The overall strategy for deriving a model architecture was to use different layers so that vehicle stays on track without touching the side lines as if it is safe for the person sitting inside the car while doing actual driving.
 
-My first step was to use only a fully connected layer(FCL) and check out the result. It was found that when the vehicle moved on a bridge, whose texture was different from the road, then it hit the side walls.
+My first step was to use only a fully connected layer(FCL) and check out the result. It was found that when the vehicle moved on a bridge, whose texture was different from the track, then it hit the side walls.
 
 Then I improved the model by adding a convolution neural network layer(CNN). Using CNN the vehicle successfully traversed the bridge, but it was not able to take sharp turn.
 
-The next improvement was to use 2 layers of CNN with relu, and 3 FCL. In this case the vehicle was able to slightly turn steering angle on sharp turn, but it still went off the road.
+The next improvement was to use 2 layers of CNN with relu, and 3 FCL. In this case the vehicle was able to slightly turn steering angle on sharp turn, but it still went off the track.
 
-Then taking clue from Nvidia architecture I created a trimmed down architecture: 3 CNN (output depth of 24, 36, 64) with relu units, followed by 4 FCL. In this case the vehicle was safely able to take sharp turn, but it moved from one side of the road to another, like a drunken car.
+Then taking clue from Nvidia architecture I created a trimmed down architecture: 3 CNN (output depth of 24, 36, 64) with relu units, followed by 4 FCL. In this case the vehicle was safely able to take sharp turn, but it moved from one side of the track to another, like a drunken car.
 
-My final archtitecture was the Nvidia Architecture where the car movement from one side of road to another reduced. At the end of the process, the vehicle is able to drive autonomously around the track (at 25 speed) without leaving the road.
+My final archtitecture was the Nvidia Architecture where the car movement from one side of track to another reduced. At the end of the process, the vehicle is able to drive autonomously around the track (at 25 speed) without leaving the track.
 
 ### 2. Final Model Architecture
 
