@@ -15,7 +15,7 @@ with open('data/driving_log.csv') as csvfile:
             first = 1
             continue
 
-        #Use Centre, left, right caera images
+        #Use Centre, left, right camera images
         for i in range(3):
             path = 'data/' + line[i]
             image = cv2.imread(path)
