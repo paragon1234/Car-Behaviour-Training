@@ -103,7 +103,6 @@ The final model architecture (model.py lines 54-63) consisted of a convolution n
 |						|												|
 |						|												|
 
-![alt text][image1]
 
 ### 3. Creation of the Training Set & Training Process
 
@@ -114,8 +113,11 @@ To capture good driving behavior, I first recorded two laps on track one using c
 I then recorded the vehicle recovering from the left side and right sides of the road back to center so that the vehicle would learn to recover from onse side of the road to the centre. The images below show what a recovery looks like:
 
 ![alt text][image2]
+
 ![alt text][image3]
+
 ![alt text][image4]
+
 ![alt text][image5]
 
 
