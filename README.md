@@ -47,7 +47,7 @@ My model consists of a convolution neural network with 3x3/5x5 filter sizes and 
 
 The model includes RELU layers to introduce nonlinearity (code line 54-56), and the data is normalized in the model using a Keras lambda layer (code line 52). 
 
-To increase accuracy of the model, the top 71 pixels and bottom 25 pixels are removed from the image using Keras Cropping2D layer (code line 53). This ensures that the image contains only the track and not mountains at the top and the car at the bottom.
+To increase accuracy of the model, the top 71 pixels and bottom 25 pixels are removed from the image using Keras Cropping2D layer (code line 53). This ensures that the image contains only the track, and not mountains at the top and the car at the bottom.
 
 ### 2. Attempts to reduce overfitting in the model
 
@@ -75,7 +75,7 @@ The next improvement was to use 2 layers of CNN with relu, and 3 FCL. In this ca
 
 Then taking clue from Nvidia architecture I created a trimmed down architecture: 3 CNN (output depth of 24, 36, 64) with relu units, followed by 4 FCL. In this case the vehicle was safely able to take sharp turn, but it moved from one side of the track to another, like a drunken car.
 
-My final archtitecture was the Nvidia Architecture where the car movement from one side of track to another reduced. At the end of the process, the vehicle is able to drive autonomously around the track (at 25 speed) without leaving the track.
+My final archtitecture was the Nvidia Architecture, where the car movement from one side of track to another reduced. At the end of the process, the vehicle is able to drive autonomously around the track (at 25 speed) without leaving the track.
 
 ### 2. Final Model Architecture
 
@@ -110,7 +110,7 @@ To capture good driving behavior, I first recorded two laps on track one using c
 
 ![alt text][image1]
 
-I then recorded the vehicle recovering from the left side and right sides of the track back to center so that the vehicle would learn to recover from onse side of the track to the centre. The images below show what a recovery looks like:
+I then recorded the vehicle recovering from the left side and right sides of the track back to center, so that the vehicle learn to recover from edge of the track to its centre. The images below show what a recovery looks like:
 
 ![alt text][image2]
 
