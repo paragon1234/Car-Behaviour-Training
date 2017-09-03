@@ -12,13 +12,11 @@ The goals / steps of this project are the following:
 
 [//]: # (Image References)
 
-[image1]: ./examples/placeholder.png "Model Visualization"
-[image2]: ./examples/placeholder.png "Grayscaling"
-[image3]: ./examples/placeholder_small.png "Recovery Image"
-[image4]: ./examples/placeholder_small.png "Recovery Image"
-[image5]: ./examples/placeholder_small.png "Recovery Image"
-[image6]: ./examples/placeholder_small.png "Normal Image"
-[image7]: ./examples/placeholder_small.png "Flipped Image"
+[image1]: ./center_2017_09_03_09_51_41_668.jpg "Model Visualization"
+[image2]: ./center_2017_09_03_10_05_15_623.jpg "Recovery Image"
+[image3]: ./center_2017_09_03_10_05_18_024.jpg "Recovery Image"
+[image4]: ./center_2017_09_03_10_05_18_382.jpg "Recovery Image"
+[image5]: ./center_2017_09_03_10_05_18_733.jpg "Recovery Image"
 
 
 ## Files Submitted & Code Quality
@@ -49,13 +47,11 @@ My model consists of a convolution neural network with 3x3/5x5 filter sizes and 
 
 The model includes RELU layers to introduce nonlinearity (code line 54-56), and the data is normalized in the model using a Keras lambda layer (code line 52). 
 
-To increase accuracy of the model, the top 71 pixels and bottom 25 pixels are removed from the image using Keras Cropping2D layer (code line 53)
+To increase accuracy of the model, the top 71 pixels and bottom 25 pixels are removed from the image using Keras Cropping2D layer (code line 53). This ensures that the image contains only the road and not mountains at the top and the car at the bottom.
 
 ### 2. Attempts to reduce overfitting in the model
 
-The model contains dropout layers in order to reduce overfitting (model.py lines 21). 
-
-The model was trained and validated on different data sets to ensure that the model was not overfitting (code line 67). The model was tested by running it through the simulator and ensuring that the vehicle could stay on the track.
+The model was trained and validated on different data sets to ensure that the model was not overfitting (code line 67). The epoches were trimmed to 5, as the validation loss increases beyond that(but training loss keeps on decreasing) indicating overfitting. The model was tested by running it through the simulator and ensuring that the vehicle could stay on the track.
 
 ### 3. Model parameter tuning
 
@@ -113,26 +109,21 @@ The final model architecture (model.py lines 54-63) consisted of a convolution n
 
 To capture good driving behavior, I first recorded two laps on track one using center lane driving. Here is an example image of center lane driving:
 
+![alt text][image1]
+
+I then recorded the vehicle recovering from the left side and right sides of the road back to center so that the vehicle would learn to recover from onse side of the road to the centre. The images below show what a recovery looks like:
+
 ![alt text][image2]
-
-I then recorded the vehicle recovering from the left side and right sides of the road back to center so that the vehicle would learn to .... These images show what a recovery looks like starting from ... :
-
 ![alt text][image3]
 ![alt text][image4]
 ![alt text][image5]
 
-Then I repeated this process on track two in order to get more data points.
 
-To augment the data sat, I also flipped images and angles thinking that this would double the data size and additionally creates training data for clock-wise turn on the track (the track has anti-clockwise turns). For example, here is an image that has then been flipped:
+To augment the data sat, I also flipped images and angles thinking that this would double the data size and additionally creates training data for clock-wise turn on the track (the track has anti-clockwise turns). Also, I utilized the left and right camera images with steering adjusted by -2 and +2 respectively. These provide data for deviation of the car steering, and creates data that is not heavily biased for zero degree steering.
 
-![alt text][image6]
-![alt text][image7]
-
-Etc ....
-
-After the collection process, I had X number of data points. I then preprocessed this data: 
+After the collection process, I had approximately 9000 number of data points. I then preprocessed this data: 
 * First by normalizing it, and finally
-* By cropping top and bottom corners
+* By cropping top and bottom corners  so that image contains only the road, and not the mountains and the car itself.
 
 
 I finally randomly shuffled the data set and put 20% of the data into a validation set. 
