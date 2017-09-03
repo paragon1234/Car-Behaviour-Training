@@ -1,6 +1,7 @@
 import csv
 import cv2
 import numpy as np
+
 #loadData
 images=[]
 measurements=[]
@@ -18,10 +19,6 @@ with open('data/driving_log.csv') as csvfile:
         for i in range(3):
             path = 'data/' + line[i]
             image = cv2.imread(path)
-            #print(image1.shape)
-            #image1 = image1[50:20,:,:]
-            #print(image1.shape)
-            #image1 = cv2.resize(image1, (64, 64))
             image1=cv2.cvtColor(image,cv2.COLOR_BGR2RGB)
             images.append(image1)
             measurement = float(line[3])
