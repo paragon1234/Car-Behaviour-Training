@@ -6,7 +6,7 @@ The goals / steps of this project are the following:
 * Use the simulator to collect data of good driving behavior
 * Build, a convolution neural network in Keras that predicts steering angles from images
 * Train and validate the model with a training and validation set
-* Test that the model successfully drives around track one without leaving the road
+* Test that the model successfully drives around track one without leaving the track
 * Summarize the results with a written report
 
 
@@ -110,7 +110,7 @@ To capture good driving behavior, I first recorded two laps on track one using c
 
 ![alt text][image1]
 
-I then recorded the vehicle recovering from the left side and right sides of the road back to center so that the vehicle would learn to recover from onse side of the road to the centre. The images below show what a recovery looks like:
+I then recorded the vehicle recovering from the left side and right sides of the track back to center so that the vehicle would learn to recover from onse side of the track to the centre. The images below show what a recovery looks like:
 
 ![alt text][image2]
 
@@ -125,7 +125,7 @@ To augment the data sat, I also flipped images and angles thinking that this wou
 
 After the collection process, I had approximately 9000 number of data points. I then preprocessed this data: 
 * First by normalizing it, and finally
-* By cropping top and bottom corners  so that image contains only the road, and not the mountains and the car itself.
+* By cropping top and bottom corners  so that image contains only the track, and not the mountains and the car itself.
 
 
 I finally randomly shuffled the data set and put 20% of the data into a validation set. 
