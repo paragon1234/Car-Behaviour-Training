@@ -12,11 +12,11 @@ The goals / steps of this project are the following:
 
 [//]: # (Image References)
 
-[image1]: ./center_2017_09_03_09_51_41_668.jpg "Model Visualization"
-[image2]: ./center_2017_09_03_10_05_15_623.jpg "Recovery Image"
-[image3]: ./center_2017_09_03_10_05_18_024.jpg "Recovery Image"
-[image4]: ./center_2017_09_03_10_05_18_382.jpg "Recovery Image"
-[image5]: ./center_2017_09_03_10_05_18_733.jpg "Recovery Image"
+[image1]: ./dataSetImages/center_2017_09_03_09_51_41_668.jpg "Model Visualization"
+[image2]: ./dataSetImages/center_2017_09_03_10_05_15_623.jpg "Recovery Image"
+[image3]: ./dataSetImages/center_2017_09_03_10_05_18_024.jpg "Recovery Image"
+[image4]: ./dataSetImages/center_2017_09_03_10_05_18_382.jpg "Recovery Image"
+[image5]: ./dataSetImages/center_2017_09_03_10_05_18_733.jpg "Recovery Image"
 
 
 ## Files Submitted & Code Quality
