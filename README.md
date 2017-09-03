@@ -121,7 +121,7 @@ I then recorded the vehicle recovering from the left side and right sides of the
 ![alt text][image5]
 
 
-To augment the data sat, I also flipped images and angles thinking that this would double the data size and additionally creates training data for clock-wise turn on the track (the track has anti-clockwise turns). Also, I utilized the left and right camera images with steering adjusted by -2 and +2 respectively. These provide data for deviation of the car steering, and creates data that is not heavily biased for zero degree steering.
+To augment the data sat, I also flipped images and angles thinking that this would double the data size and additionally creates training data for clock-wise turn on the track (the track has anti-clockwise turns). Also, I utilized the left and right camera images with steering adjusted by -0.2 and +0.2 respectively. These provide data for deviation of the car steering, and creates data that is not heavily biased for zero degree steering.
 
 After the collection process, I had approximately 9000 number of data points. I then preprocessed this data: 
 * First by normalizing it, and finally
